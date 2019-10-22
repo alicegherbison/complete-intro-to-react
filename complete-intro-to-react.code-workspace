@@ -9,22 +9,22 @@
     "peacock.affectTabActiveBorder": true,
     "peacock.color": "#fc9867",
     "workbench.colorCustomizations": {
-      "activityBar.background": "#fc9867",
-      "activityBar.foreground": "#191919",
-      "activityBar.inactiveForeground": "#191919",
-      "activityBarBadge.background": "#ff6188",
+      "activityBar.background": "#fdba99",
+      "activityBar.foreground": "#15202b",
+      "activityBar.inactiveForeground": "#15202b99",
+      "activityBarBadge.background": "#039c36",
       "activityBarBadge.foreground": "#e7e7e7",
       "titleBar.activeBackground": "#fc9867",
       "titleBar.inactiveBackground": "#fc986799",
-      "titleBar.activeForeground": "#191919",
-      "titleBar.inactiveForeground": "#191919",
+      "titleBar.activeForeground": "#15202b",
+      "titleBar.inactiveForeground": "#15202b99",
       "statusBar.background": "#fc9867",
       "statusBarItem.hoverBackground": "#fb7635",
-      "statusBar.foreground": "#191919",
-      "panel.border": "#fc9867",
-      "sideBar.border": "#fc9867",
-      "editorGroup.border": "#fc9867",
-      "tab.activeBorder": "#fc9867"
+      "statusBar.foreground": "#15202b",
+      "panel.border": "#fdba99",
+      "sideBar.border": "#fdba99",
+      "editorGroup.border": "#fdba99",
+      "tab.activeBorder": "#fdba99"
     }
   }
 }
