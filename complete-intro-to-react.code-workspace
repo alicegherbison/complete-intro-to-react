@@ -9,10 +9,10 @@
     "peacock.affectTabActiveBorder": true,
     "peacock.color": "#fc9867",
     "workbench.colorCustomizations": {
-      "activityBar.background": "#fdba99",
+      "activityBar.background": "#fc9867",
       "activityBar.foreground": "#15202b",
       "activityBar.inactiveForeground": "#15202b99",
-      "activityBarBadge.background": "#039c36",
+      "activityBarBadge.background": "#027d2b",
       "activityBarBadge.foreground": "#e7e7e7",
       "titleBar.activeBackground": "#fc9867",
       "titleBar.inactiveBackground": "#fc986799",
@@ -21,10 +21,10 @@
       "statusBar.background": "#fc9867",
       "statusBarItem.hoverBackground": "#fb7635",
       "statusBar.foreground": "#15202b",
-      "panel.border": "#fdba99",
-      "sideBar.border": "#fdba99",
-      "editorGroup.border": "#fdba99",
-      "tab.activeBorder": "#fdba99"
+      "panel.border": "#fc9867",
+      "sideBar.border": "#fc9867",
+      "editorGroup.border": "#fc9867",
+      "tab.activeBorder": "#fc9867"
     }
   }
 }
