@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/alicegherbison/complete-intro-to-react/issues"
   },
-  "homepage": "https://github.com/alicegherbison/complete-intro-to-react#readme"
+  "homepage": "https://github.com/alicegherbison/complete-intro-to-react#readme",
+  "devDependencies": {
+    "prettier": "^1.18.2"
+  }
 }
