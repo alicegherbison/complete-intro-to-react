@@ -24,12 +24,12 @@ body {
   font-family: monospace;
 }
 
-.search-params {
+.search-parameters {
   width: 1100px;
   margin: 0 auto;
 }
 
-.search-params form {
+.search-parameters form {
   background-color: var(--color-yellow);
   width: 360px;
   margin: 0px 25px 0px 0px;
