@@ -5,20 +5,20 @@ import useDropdown from './useDropdown';
 
 const SearchParameters = () => {
   const [location, setLocation] = useState('Seattle, WA');
-  const [animal, AnimalDropdown] = useDropdown('Animal', 'cat', ANIMALS);
-  const [breed, BreedDropdown] = useDropdown('Breed', '', ANIMALS);
   const [breeds, setBreeds] = useState([]);
+  const [animal, AnimalDropdown] = useDropdown('Animal', 'cat', ANIMALS);
+  const [breed, BreedDropdown, setBreed] = useDropdown('Breed', '', breeds);
 
   useEffect(() => {
-    updateBreeds([]);
-    updateBreed('');
+    setBreeds([]);
+    setBreed('');
 
     pet.breeds(animal).then(({ breeds }) => {
       const names = breeds.map(({ name }) => name);
 
       setBreeds(names);
     }, console.error);
-  });
+  }, [animal, setBreed, setBreeds]);
 
   return (
     <div className="search-parameters">
