@@ -4,6 +4,7 @@
   "description": "frontend masters course",
   "main": "index.js",
   "scripts": {
+    "dev:mock": "cross-env PET_MOCK=mock npm run dev",
     "dev": "parcel src/index.html",
     "format": "prettier \"src/**/*.{js,html,css}\" --write",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
@@ -21,6 +22,7 @@
   "homepage": "https://github.com/alicegherbison/complete-intro-to-react#readme",
   "devDependencies": {
     "babel-eslint": "^10.0.3",
+    "cross-env": "^6.0.3",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.5.0",
     "eslint-plugin-import": "^2.18.2",
@@ -34,5 +36,16 @@
     "@frontendmasters/pet": "^1.0.3",
     "react": "^16.11.0",
     "react-dom": "^16.11.0"
-  }
+  },
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 ChromeAndroid versions",
+    "last 2 Firefox versions",
+    "last 2 FirefoxAndroid versions",
+    "last 2 Safari versions",
+    "last 2 iOS versions",
+    "last 2 Edge versions",
+    "last 2 Opera versions",
+    "last 2 OperaMobile versions"
+  ]
 }

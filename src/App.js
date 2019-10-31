@@ -5,10 +5,10 @@ import SearchParameters from './SearchParameters';
 
 const App = () => {
   return (
-    <>
+    <React.StrictMode>
       <h1>Adopt me!</h1>
       <SearchParameters />
-    </>
+    </React.StrictMode>
   );
 };
 
