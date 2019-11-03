@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { router } from '@reach/router';
 
 import SearchParameters from './SearchParameters';
 
