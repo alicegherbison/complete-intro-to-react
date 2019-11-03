@@ -9,7 +9,7 @@ const Pet = ({ animal, breed, id, location, media, name }) => {
 
   return (
     <>
-      <a href={'/details/${id}'} className="pet">
+      <a href={`/details/${id}`} className="pet">
         <div className="image-container">
           <img src={hero} alt={name} />
         </div>
