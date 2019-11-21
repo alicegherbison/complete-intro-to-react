@@ -1,5 +1,6 @@
 import React from 'react';
 import pet from '@frontendmasters/pet';
+import Carousel from './Carousel';
 
 class Details extends React.Component {
   state = { loading: true };
@@ -23,10 +24,11 @@ class Details extends React.Component {
       return <h1>loading...</h1>;
     }
 
-    const { animal, breed, description, location, name } = this.state;
+    const { animal, breed, description, location, media, name } = this.state;
 
     return (
       <div className="details">
+        <Carousel media={media} />
         <div>
           <h1>{name}</h1>
           <h2>{`${animal} - ${breed} - ${location}`}</h2>
