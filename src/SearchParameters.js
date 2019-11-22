@@ -56,6 +56,13 @@ const SearchParameters = () => {
         </label>
         <AnimalDropdown />
         <BreedDropdown />
+        <label htmlFor="theme">
+          Theme
+          <select
+            value={theme}
+            onChange={event => setTheme(event.target.value)}
+            onBlur={event => setTheme(event.target.value)}></select>
+        </label>
         <button style={{ backgroundColor: theme }}>Submit</button>
       </form>
       <Results pets={pets} />
