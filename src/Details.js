@@ -1,12 +1,14 @@
 import React from 'react';
+import { navigate } from '@reach/router';
 import pet from '@frontendmasters/pet';
 
 import Carousel from './Carousel';
 import ErrorBoundary from './ErrorBoundary';
+import Modal from './Modal';
 import ThemeContext from './ThemeContext';
 
 class Details extends React.Component {
-  state = { loading: true };
+  state = { loading: true, modal: false };
 
   componentDidMount() {
     pet.animal(this.props.id).then(({ animal }) => {
@@ -17,10 +19,15 @@ class Details extends React.Component {
         description: animal.description,
         media: animal.photos,
         breed: animal.breeds.primary,
+        url: animal.url,
         loading: false,
       });
     }, console.error);
   }
+
+  adopt = () => navigate(this.state.url);
+
+  toggleModal = () => this.setState({ modal: !this.state.modal });
 
   render() {
     // put error here to test
@@ -29,7 +36,15 @@ class Details extends React.Component {
       return <h1>loading...</h1>;
     }
 
-    const { animal, breed, description, location, media, name } = this.state;
+    const {
+      animal,
+      breed,
+      description,
+      location,
+      media,
+      modal,
+      name,
+    } = this.state;
 
     return (
       <div className="details">
@@ -39,10 +54,23 @@ class Details extends React.Component {
           <h2>{`${animal} - ${breed} - ${location}`}</h2>
           <ThemeContext.Consumer>
             {([theme]) => (
-              <button style={{ backgroundColor: theme }}>Adopt {name}</button>
+              <button
+                onClick={this.toggleModal}
+                style={{ backgroundColor: theme }}>
+                Adopt {name}
+              </button>
             )}
           </ThemeContext.Consumer>
           <p>{description}</p>
+          {modal && (
+            <Modal>
+              <h1>Would you like to adopt {name}</h1>
+              <div className="buttons">
+                <button onClick={this.adopt}>Yes</button>
+                <button onClick={this.toggleModal}>No</button>
+              </div>
+            </Modal>
+          )}
         </div>
       </div>
     );
