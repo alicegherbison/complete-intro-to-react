@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
 // updater doesn't do anything - hence empty function
-const ThemeContext = createContext(['aliceblue', () => {}]);
+const ThemeContext = createContext(['peru', () => {}]);
 
 export default ThemeContext;

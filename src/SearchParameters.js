@@ -15,7 +15,7 @@ const SearchParameters = () => {
   const [animal, AnimalDropdown] = useDropdown('Animal', 'cat', ANIMALS);
   const [breed, BreedDropdown, setBreed] = useDropdown('Breed', '', breeds);
 
-  const [theme] = useContext(ThemeContext);
+  const [theme, setTheme] = useContext(ThemeContext);
 
   async function requestPets() {
     const { animals } = await pet.animals({
@@ -59,9 +59,14 @@ const SearchParameters = () => {
         <label htmlFor="theme">
           Theme
           <select
-            value={theme}
+            onBlur={event => setTheme(event.target.value)}
             onChange={event => setTheme(event.target.value)}
-            onBlur={event => setTheme(event.target.value)}></select>
+            value={theme}>
+            <option value="peru">Peru</option>
+            <option value="darkblue">Dark blue</option>
+            <option value="mediumorchid">Medium orchid</option>
+            <option value="chartreuse">Chartreuse</option>
+          </select>
         </label>
         <button style={{ backgroundColor: theme }}>Submit</button>
       </form>
