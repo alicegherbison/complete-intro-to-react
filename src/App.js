@@ -15,7 +15,9 @@ const App = () => {
     <React.StrictMode>
       <ThemeContext.Provider value={themeHook}>
         <header>
-          <Link to="/">Adopt me!</Link>
+          <h1>
+            <Link to="/">Adopt me!</Link>
+          </h1>
         </header>
         <Router>
           <SearchParameters path="/" />
