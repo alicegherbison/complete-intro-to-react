@@ -3,11 +3,11 @@ import Pet from './Pet';
 
 const Results = ({ pets }) => {
   return (
-    <div className="search">
+    <section className="results">
       {!pets.length ? (
-        <h1>No Pets Found</h1>
+        <h2>No Pets Found</h2>
       ) : (
-        pets.map(pet => {
+        pets.map((pet) => {
           return (
             <Pet
               animal={pet.type}
@@ -21,7 +21,7 @@ const Results = ({ pets }) => {
           );
         })
       )}
-    </div>
+    </section>
   );
 };
 

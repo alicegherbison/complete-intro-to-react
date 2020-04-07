@@ -15,14 +15,14 @@ const App = () => {
     <React.StrictMode>
       <ThemeContext.Provider value={themeHook}>
         <header>
-          <h1>
-            <Link to="/">Adopt me!</Link>
-          </h1>
+          <Link to="/">Adopt me!</Link>
         </header>
-        <Router>
-          <SearchParameters path="/" />
-          <Details path="/details/:id" />
-        </Router>
+        <main>
+          <Router>
+            <SearchParameters path="/" />
+            <Details path="/details/:id" />
+          </Router>
+        </main>
       </ThemeContext.Provider>
     </React.StrictMode>
   );

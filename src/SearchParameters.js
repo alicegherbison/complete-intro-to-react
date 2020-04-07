@@ -39,37 +39,39 @@ const SearchParameters = () => {
   }, [animal, setBreed, setBreeds]);
 
   return (
-    <div className="search-parameters">
-      <form
-        onSubmit={event => {
-          event.preventDefault();
+    <div className="search">
+      <section className="search-parameters">
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
 
-          requestPets();
-        }}>
-        <label htmlFor="location">
-          Location
-          <input
-            id="location"
-            onChange={event => setLocation(event.target.value)}
-            value={location}
-          />
-        </label>
-        <AnimalDropdown />
-        <BreedDropdown />
-        <label htmlFor="theme">
-          Theme
-          <select
-            onBlur={event => setTheme(event.target.value)}
-            onChange={event => setTheme(event.target.value)}
-            value={theme}>
-            <option value="peru">Peru</option>
-            <option value="darkblue">Dark blue</option>
-            <option value="mediumorchid">Medium orchid</option>
-            <option value="chartreuse">Chartreuse</option>
-          </select>
-        </label>
-        <button style={{ backgroundColor: theme }}>Submit</button>
-      </form>
+            requestPets();
+          }}>
+          <label htmlFor="location">
+            Location
+            <input
+              id="location"
+              onChange={(event) => setLocation(event.target.value)}
+              value={location}
+            />
+          </label>
+          <AnimalDropdown />
+          <BreedDropdown />
+          <label htmlFor="theme">
+            Theme
+            <select
+              onBlur={(event) => setTheme(event.target.value)}
+              onChange={(event) => setTheme(event.target.value)}
+              value={theme}>
+              <option value="peru">Peru</option>
+              <option value="darkblue">Dark blue</option>
+              <option value="mediumorchid">Medium orchid</option>
+              <option value="chartreuse">Chartreuse</option>
+            </select>
+          </label>
+          <button style={{ backgroundColor: theme }}>Submit</button>
+        </form>
+      </section>
       <Results pets={pets} />
     </div>
   );
