@@ -48,7 +48,7 @@ const SearchParameters = () => {
             requestPets();
           }}>
           <label htmlFor="location">
-            Location
+            <span>Location</span>
             <input
               id="location"
               onChange={(event) => setLocation(event.target.value)}
@@ -58,7 +58,7 @@ const SearchParameters = () => {
           <AnimalDropdown />
           <BreedDropdown />
           <label htmlFor="theme">
-            Theme
+            <span>Theme</span>
             <select
               onBlur={(event) => setTheme(event.target.value)}
               onChange={(event) => setTheme(event.target.value)}

@@ -5,7 +5,7 @@ const Results = ({ pets }) => {
   return (
     <section className="results">
       {!pets.length ? (
-        <h2>No Pets Found</h2>
+        <h2>No pets found</h2>
       ) : (
         pets.map((pet) => {
           return (
