@@ -5,7 +5,7 @@ import { Link, Router } from '@reach/router';
 import ThemeContext from './ThemeContext';
 
 import Details from './Details';
-import SearchParameters from './SearchParameters';
+import Search from './Search';
 
 const App = () => {
   // can also use an object instead of a string, then access properties as needed
@@ -19,7 +19,7 @@ const App = () => {
         </header>
         <main>
           <Router>
-            <SearchParameters path="/" />
+            <Search path="/" />
             <Details path="/details/:id" />
           </Router>
         </main>
