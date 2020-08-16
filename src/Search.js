@@ -40,7 +40,7 @@ const SearchParameters = () => {
 
   return (
     <div className="search">
-      <section className="search-parameters">
+      <section className="parameters">
         <form
           onSubmit={(event) => {
             event.preventDefault();
