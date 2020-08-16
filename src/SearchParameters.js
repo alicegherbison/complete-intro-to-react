@@ -35,7 +35,7 @@ const SearchParameters = () => {
       const names = breeds.map(({ name }) => name);
 
       setBreeds(names);
-    }, console.error);
+    });
   }, [animal, setBreed, setBreeds]);
 
   return (
@@ -44,7 +44,6 @@ const SearchParameters = () => {
         <form
           onSubmit={(event) => {
             event.preventDefault();
-
             requestPets();
           }}>
           <label htmlFor="location">
