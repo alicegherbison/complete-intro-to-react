@@ -11,11 +11,11 @@ const Pet = ({ animal, breed, id, location, media, name }) => {
   return (
     <Link className="pet" to={`/details/${id}`}>
       <div className="image-container">
-        <img src={hero} alt={name} />
+        <img alt={name} className="image" src={hero} />
       </div>
       <div className="info">
-        <h1>{name}</h1>
-        <h2>{`${animal} - ${breed} - ${location}`}</h2>
+        <h3>{name}</h3>
+        <span>{`${animal} - ${breed} - ${location}`}</span>
       </div>
     </Link>
   );
