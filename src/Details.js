@@ -33,7 +33,7 @@ class Details extends React.Component {
     // put error here to test
 
     if (this.state.loading) {
-      return <h1>loading...</h1>;
+      return <h2>loading...</h2>;
     }
 
     const {
@@ -50,8 +50,8 @@ class Details extends React.Component {
       <div className="details">
         <Carousel media={media} />
         <div>
-          <h1>{name}</h1>
-          <h2>{`${animal} - ${breed} - ${location}`}</h2>
+          <h2>{name}</h2>
+          <h3>{`${animal} - ${breed} - ${location}`}</h3>
           <ThemeContext.Consumer>
             {([theme]) => (
               <button
@@ -64,7 +64,7 @@ class Details extends React.Component {
           <p>{description}</p>
           {modal && (
             <Modal>
-              <h1>Would you like to adopt {name}</h1>
+              <h2>Would you like to adopt {name}</h2>
               <div className="buttons">
                 <button onClick={this.adopt}>Yes</button>
                 <button onClick={this.toggleModal}>No</button>

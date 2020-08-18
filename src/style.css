@@ -303,6 +303,12 @@ a.title {
   color: var(--color-cyan);
 }
 
+.details {
+  border: 0.2rem solid var(--color-pink);
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+
 @media only screen and (min-width: 768px) {
   .results {
     grid-template-columns: 1fr 1fr;
@@ -323,15 +329,6 @@ a.title {
   .results {
     flex-grow: 1;
   }
-}
-
-.details {
-  width: 1100px;
-  margin: 0 auto;
-  background-color: var(--color-yellow);
-  padding: 15px;
-  border-radius: 9px;
-  margin-bottom: 25px;
 }
 
 .details p {
@@ -411,16 +408,6 @@ a.title {
 #modal .buttons button {
   display: inline-block;
   margin-right: 15px;
-}
-
-@media only screen and (max-width: 1129px) {
-  .details {
-    width: 95%;
-    margin: 0 auto;
-    padding: 15px;
-    border-radius: 9px;
-    margin-bottom: 25px;
-  }
 }
 
 @media only screen and (max-width: 600px) {
