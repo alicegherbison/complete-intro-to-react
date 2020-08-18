@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from '@reach/router';
 
-const Pet = ({ animal, breed, id, location, media, name }) => {
+const Pet = ({ breed, id, location, media, name }) => {
   let hero = 'http://placekitten.com/300/300';
 
   if (media.length) {
@@ -13,10 +13,9 @@ const Pet = ({ animal, breed, id, location, media, name }) => {
       <div className="image-container">
         <img alt={name} className="image" src={hero} />
       </div>
-      <div className="info">
-        <h3>{name}</h3>
-        <span>{`${animal} - ${breed} - ${location}`}</span>
-      </div>
+      <h3>{name}</h3>
+      <p>{breed}</p>
+      <p>{location}</p>
     </Link>
   );
 };
