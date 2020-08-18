@@ -13,7 +13,7 @@ const Pet = ({ breed, id, location, media, name }) => {
       <div className="image-container">
         <img alt={name} className="image" src={hero} />
       </div>
-      <h3>{name}</h3>
+      <h3 className="name">{name}</h3>
       <p>{breed}</p>
       <p>{location}</p>
     </Link>
