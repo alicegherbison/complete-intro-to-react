@@ -68,7 +68,9 @@ const SearchParameters = () => {
               <option value="chartreuse">Chartreuse</option>
             </select>
           </label>
-          <button style={{ backgroundColor: theme }}>Submit</button>
+          <button className="text-button" style={{ backgroundColor: theme }}>
+            Submit
+          </button>
         </form>
       </section>
       <Results pets={pets} />

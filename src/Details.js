@@ -38,7 +38,7 @@ class Details extends React.Component {
     const { breed, description, location, media, modal, name } = this.state;
 
     return (
-      <div className="details">
+      <section className="details">
         <Carousel media={media} />
         <h2>{name}</h2>
         <p>{breed}</p>
@@ -62,7 +62,7 @@ class Details extends React.Component {
             </div>
           </Modal>
         )}
-      </div>
+      </section>
     );
   }
 }
