@@ -48,6 +48,7 @@ class Details extends React.Component {
             <ThemeContext.Consumer>
               {([theme]) => (
                 <button
+                  className="text-button"
                   onClick={this.toggleModal}
                   style={{ backgroundColor: theme }}>
                   Adopt {name}
