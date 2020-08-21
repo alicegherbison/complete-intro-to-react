@@ -40,18 +40,20 @@ class Details extends React.Component {
     return (
       <section className="details">
         <Carousel media={media} />
-        <h2>{name}</h2>
-        <p>{breed}</p>
-        <p>{location}</p>
-        <ThemeContext.Consumer>
-          {([theme]) => (
-            <button
-              onClick={this.toggleModal}
-              style={{ backgroundColor: theme }}>
-              Adopt {name}
-            </button>
-          )}
-        </ThemeContext.Consumer>
+        <div>
+          <h2 className="name">{name}</h2>
+          <p>{breed}</p>
+          <p>{location}</p>
+          <ThemeContext.Consumer>
+            {([theme]) => (
+              <button
+                onClick={this.toggleModal}
+                style={{ backgroundColor: theme }}>
+                Adopt {name}
+              </button>
+            )}
+          </ThemeContext.Consumer>
+        </div>
         <p>{description}</p>
         {modal && (
           <Modal>

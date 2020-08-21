@@ -316,12 +316,45 @@ a.title {
 }
 
 .carousel {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
   margin-bottom: 2rem;
+}
+
+.image-large {
+  border: 2px solid var(--color-green);
+  border-radius: var(--radius);
+  margin: 0 auto;
+  margin-bottom: 2rem;
+
+  height: 300px;
+}
+
+.buttons {
+  display: flex;
+
+  align-items: center;
+  justify-items: center;
+}
+
+.image-small {
+  height: 100px;
+  cursor: pointer;
+  border: 2px solid var(--color-yellow);
+  border-radius: var(--radius);
 }
 
 @media only screen and (min-width: 768px) {
   .results {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .details {
+    display: flex;
   }
 }
 
@@ -339,25 +372,6 @@ a.title {
   .results {
     flex-grow: 1;
   }
-}
-
-.carousel > img {
-  max-width: 45%;
-  max-height: 400px;
-}
-
-.carousel-smaller {
-  width: 50%;
-}
-
-.carousel-smaller > img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  display: inline-block;
-  margin: 15px;
-  cursor: pointer;
-  border: 2px solid var(--color-grey-dark);
 }
 
 .carousel-smaller > img.active {
@@ -393,11 +407,4 @@ a.title {
 #modal .buttons button {
   display: inline-block;
   margin-right: 15px;
-}
-
-@media only screen and (max-width: 600px) {
-  .carousel-smaller > img {
-    width: 60px;
-    height: 60px;
-  }
 }
