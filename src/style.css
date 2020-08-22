@@ -237,6 +237,8 @@ label span {
 }
 
 button {
+  cursor: pointer;
+
   border: 0;
   padding: 0;
 
@@ -331,8 +333,7 @@ a.title {
   border-radius: var(--radius);
   margin: 0 auto;
   margin-bottom: 2rem;
-
-  height: 300px;
+  max-width: 100%;
 }
 
 .buttons {
