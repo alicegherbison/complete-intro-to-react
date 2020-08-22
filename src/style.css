@@ -194,7 +194,7 @@ h3 {
 p {
   margin-bottom: 0.5rem;
 
-  line-height: 1.2;
+  line-height: 1.5;
 }
 
 p:last-child {
@@ -243,6 +243,12 @@ button {
   padding: 0;
 
   background-color: transparent;
+}
+
+hr {
+  border: 1px solid var(--color-orange);
+  border-radius: var(--radius);
+  margin: 2rem 0;
 }
 
 #root {
@@ -310,7 +316,7 @@ a.title {
 .name {
   margin-bottom: 0.5rem;
 
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: var(--color-cyan);
 }
 
@@ -344,13 +350,18 @@ a.title {
 }
 
 .image-small {
-  height: 100px;
-  cursor: pointer;
   border: 2px solid var(--color-yellow);
   border-radius: var(--radius);
+  max-width: 80px;
 }
 
 .overview {
+  margin-bottom: 2rem;
+
+  text-align: center;
+}
+
+.adopt {
   text-align: center;
 }
 
@@ -387,11 +398,6 @@ a.title {
   .results {
     flex-grow: 1;
   }
-}
-
-.carousel-smaller > img.active {
-  border-color: var(--color-pink);
-  opacity: 0.6;
 }
 
 #modal {

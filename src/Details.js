@@ -45,6 +45,8 @@ class Details extends React.Component {
             <h2 className="name">{name}</h2>
             <p>{breed}</p>
             <p>{location}</p>
+          </div>
+          <div className="adopt">
             <ThemeContext.Consumer>
               {([theme]) => (
                 <button
@@ -56,6 +58,7 @@ class Details extends React.Component {
               )}
             </ThemeContext.Consumer>
           </div>
+          <hr />
           <p>{description}</p>
         </div>
         {modal && (
