@@ -9,7 +9,7 @@ import Search from './Search';
 
 const App = () => {
   // can also use an object instead of a string, then access properties as needed
-  const themeHook = useState('--var(color-magenta)');
+  const themeHook = useState('var(--color-green)');
 
   return (
     <React.StrictMode>

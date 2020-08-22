@@ -14,12 +14,12 @@ export default function ThemeChooser() {
             onBlur={(event) => setTheme(event.target.value)}
             onChange={(event) => setTheme(event.target.value)}
             value={theme}>
-            <option value="#ab9df2">Lilac</option>
-            <option value="#ff6188">Pink</option>
-            <option value="#fc9867">Orange</option>
-            <option value="#ffd866">Yellow</option>
-            <option value="#a9dc76">Green</option>
-            <option value="#78dce8">Cyan</option>
+            <option value="var(--color-lilac)">Lilac</option>
+            <option value="var(--color-pink)">Pink</option>
+            <option value="var(--color-orange)">Orange</option>
+            <option value="var(--color-yellow)">Yellow</option>
+            <option value="var(--color-green)">Green</option>
+            <option value="var(--color-cyan)">Cyan</option>
           </select>
         </label>
       </form>

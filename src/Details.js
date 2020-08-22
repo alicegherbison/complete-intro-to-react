@@ -63,9 +63,16 @@ class Details extends React.Component {
           <Modal>
             <h2 className="adopt-heading">Adopt {name}?</h2>
             <div className="buttons">
-              <button className="text-button" onClick={this.adopt}>
-                Yes!
-              </button>
+              <ThemeContext.Consumer>
+                {([theme]) => (
+                  <button
+                    className="text-button"
+                    onClick={this.adopt}
+                    style={{ backgroundColor: theme }}>
+                    Yes!
+                  </button>
+                )}
+              </ThemeContext.Consumer>
               <button
                 className="text-button text-button-transparent"
                 onClick={this.toggleModal}>
