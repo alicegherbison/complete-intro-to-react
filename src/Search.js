@@ -3,9 +3,10 @@ import pet, { ANIMALS } from '@frontendmasters/pet';
 
 import useDropdown from './useDropdown';
 
-import ThemeContext from './ThemeContext';
+import ThemeContext from './useThemeContext';
 
 import Results from './Results';
+import ThemeChooser from './ThemeChooser';
 
 const SearchParameters = () => {
   const [breeds, setBreeds] = useState([]);
@@ -15,7 +16,7 @@ const SearchParameters = () => {
   const [animal, AnimalDropdown] = useDropdown('Animal', 'cat', ANIMALS);
   const [breed, BreedDropdown, setBreed] = useDropdown('Breed', '', breeds);
 
-  const [theme, setTheme] = useContext(ThemeContext);
+  const [theme] = useContext(ThemeContext);
 
   async function requestPets() {
     const { animals } = await pet.animals({
@@ -39,42 +40,33 @@ const SearchParameters = () => {
   }, [animal, setBreed, setBreeds]);
 
   return (
-    <div className="search">
-      <section className="parameters">
-        <form
-          onSubmit={(event) => {
-            event.preventDefault();
-            requestPets();
-          }}>
-          <label htmlFor="location">
-            <span>Location</span>
-            <input
-              id="location"
-              onChange={(event) => setLocation(event.target.value)}
-              value={location}
-            />
-          </label>
-          <AnimalDropdown />
-          <BreedDropdown />
-          <label htmlFor="theme">
-            <span>Theme</span>
-            <select
-              onBlur={(event) => setTheme(event.target.value)}
-              onChange={(event) => setTheme(event.target.value)}
-              value={theme}>
-              <option value="peru">Peru</option>
-              <option value="darkblue">Dark blue</option>
-              <option value="mediumorchid">Medium orchid</option>
-              <option value="chartreuse">Chartreuse</option>
-            </select>
-          </label>
-          <button className="text-button" style={{ backgroundColor: theme }}>
-            Submit
-          </button>
-        </form>
-      </section>
-      <Results pets={pets} />
-    </div>
+    <>
+      <div className="search">
+        <section className="parameters">
+          <form
+            onSubmit={(event) => {
+              event.preventDefault();
+              requestPets();
+            }}>
+            <label htmlFor="location">
+              <span>Location</span>
+              <input
+                id="location"
+                onChange={(event) => setLocation(event.target.value)}
+                value={location}
+              />
+            </label>
+            <AnimalDropdown />
+            <BreedDropdown />
+            <button className="text-button" style={{ backgroundColor: theme }}>
+              Submit
+            </button>
+          </form>
+        </section>
+        <Results pets={pets} />
+      </div>
+      <ThemeChooser />
+    </>
   );
 };
 

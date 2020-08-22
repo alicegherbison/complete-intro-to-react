@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { render } from 'react-dom';
 import { Link, Router } from '@reach/router';
 
-import ThemeContext from './ThemeContext';
+import ThemeContext from './useThemeContext';
 
 import Details from './Details';
 import Search from './Search';
