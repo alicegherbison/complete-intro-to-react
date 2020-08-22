@@ -29,13 +29,11 @@ class Details extends React.Component {
   toggleModal = () => this.setState({ modal: !this.state.modal });
 
   render() {
-    // put error here to test
+    const { breed, description, location, media, modal, name } = this.state;
 
     if (this.state.loading) {
       return <h2>loading...</h2>;
     }
-
-    const { breed, description, location, media, modal, name } = this.state;
 
     return (
       <section className="details">
@@ -63,10 +61,16 @@ class Details extends React.Component {
         </div>
         {modal && (
           <Modal>
-            <h2>Would you like to adopt {name}</h2>
+            <h2 className="adopt-heading">Adopt {name}?</h2>
             <div className="buttons">
-              <button onClick={this.adopt}>Yes</button>
-              <button onClick={this.toggleModal}>No</button>
+              <button className="text-button" onClick={this.adopt}>
+                Yes!
+              </button>
+              <button
+                className="text-button text-button-transparent"
+                onClick={this.toggleModal}>
+                Cancel
+              </button>
             </div>
           </Modal>
         )}

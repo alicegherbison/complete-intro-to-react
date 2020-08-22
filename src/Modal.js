@@ -18,7 +18,10 @@ const Modal = ({ children }) => {
     return () => modalRoot.removeChild(elementReference.current);
   }, []);
 
-  return createPortal(<div>{children}</div>, elementReference.current);
+  return createPortal(
+    <div className="modal">{children}</div>,
+    elementReference.current
+  );
 };
 
 export default Modal;
