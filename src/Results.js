@@ -4,9 +4,9 @@ import Pet from './Pet';
 const Results = ({ pets }) => {
   return (
     <section className="results">
-      {!pets.length ? (
-        <h2>No pets found</h2>
-      ) : (
+      {pets === null ? (
+        <h2>Use the search form to search for your ideal pet.</h2>
+      ) : pets.length ? (
         pets.map((pet) => {
           return (
             <Pet
@@ -19,6 +19,8 @@ const Results = ({ pets }) => {
             />
           );
         })
+      ) : (
+        <h2>No pets found, try searching again.</h2>
       )}
     </section>
   );

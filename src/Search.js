@@ -11,7 +11,7 @@ import ThemeChooser from './ThemeChooser';
 const SearchParameters = () => {
   const [breeds, setBreeds] = useState([]);
   const [location, setLocation] = useState('Seattle, WA');
-  const [pets, setPets] = useState([]);
+  const [pets, setPets] = useState(null);
 
   const [animal, AnimalDropdown] = useDropdown('Animal', 'cat', ANIMALS);
   const [breed, BreedDropdown, setBreed] = useDropdown('Breed', '', breeds);
