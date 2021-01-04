@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { render } from 'react-dom';
-import { Link, Router } from '@reach/router';
+import React, { useState } from "react";
+import { render } from "react-dom";
+import { Link, Router } from "@reach/router";
 
-import ThemeContext from './useThemeContext';
+import ThemeContext from "./useThemeContext";
 
-import Details from './Details';
-import Search from './Search';
+import Details from "./Details";
+import Search from "./Search";
 
 const App = () => {
   // can also use an object instead of a string, then access properties as needed
-  const themeHook = useState('var(--color-green)');
+  const themeHook = useState("var(--color-green)");
 
   return (
     <React.StrictMode>
@@ -30,4 +30,4 @@ const App = () => {
   );
 };
 
-render(<App />, document.getElementById('root'));
+render(<App />, document.getElementById("root"));

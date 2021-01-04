@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 class Carousel extends React.Component {
   state = {
@@ -7,7 +7,7 @@ class Carousel extends React.Component {
   };
 
   static getDerivedStateFromProps({ media }) {
-    let photos = ['http://placekitten.com/600/600'];
+    let photos = ["http://placekitten.com/600/600"];
 
     if (media.length) {
       photos = media.map(({ large }) => large);
@@ -35,7 +35,7 @@ class Carousel extends React.Component {
         <div className="buttons">
           {photos.map((photo, index) => (
             <button
-              className={index === active ? 'active' : ''}
+              className={index === active ? "active" : ""}
               data-index={index}
               key={photo}
               onClick={this.handleIndexClick}>

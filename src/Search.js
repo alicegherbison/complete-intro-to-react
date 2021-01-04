@@ -1,20 +1,20 @@
-import React, { useContext, useEffect, useState } from 'react';
-import pet, { ANIMALS } from '@frontendmasters/pet';
+import React, { useContext, useEffect, useState } from "react";
+import pet, { ANIMALS } from "@frontendmasters/pet";
 
-import useDropdown from './useDropdown';
+import useDropdown from "./useDropdown";
 
-import ThemeContext from './useThemeContext';
+import ThemeContext from "./useThemeContext";
 
-import Results from './Results';
-import ThemeChooser from './ThemeChooser';
+import Results from "./Results";
+import ThemeChooser from "./ThemeChooser";
 
 const SearchParameters = () => {
   const [breeds, setBreeds] = useState([]);
-  const [location, setLocation] = useState('Seattle, WA');
+  const [location, setLocation] = useState("Seattle, WA");
   const [pets, setPets] = useState(null);
 
-  const [animal, AnimalDropdown] = useDropdown('Animal', 'cat', ANIMALS);
-  const [breed, BreedDropdown, setBreed] = useDropdown('Breed', '', breeds);
+  const [animal, AnimalDropdown] = useDropdown("Animal", "cat", ANIMALS);
+  const [breed, BreedDropdown, setBreed] = useDropdown("Breed", "", breeds);
 
   const [theme] = useContext(ThemeContext);
 
@@ -30,7 +30,7 @@ const SearchParameters = () => {
 
   useEffect(() => {
     setBreeds([]);
-    setBreed('');
+    setBreed("");
 
     pet.breeds(animal).then(({ breeds }) => {
       const names = breeds.map(({ name }) => name);

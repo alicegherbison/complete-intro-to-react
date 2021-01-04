@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link, Redirect } from '@reach/router';
+import React from "react";
+import { Link, Redirect } from "@reach/router";
 
 class ErrorBoundary extends React.Component {
   state = {
@@ -14,7 +14,7 @@ class ErrorBoundary extends React.Component {
   }
 
   componentDidCatch(error, info) {
-    console.error('Error boundary caught an error', error, info);
+    console.error("Error boundary caught an error", error, info);
   }
 
   // called every time props or state change - the equivalent of useEffect
@@ -32,7 +32,7 @@ class ErrorBoundary extends React.Component {
     if (this.state.hasError) {
       return (
         <h1>
-          There was a problem with this listing link.{' '}
+          There was a problem with this listing link.{" "}
           <Link to="/">Go back home</Link>.
         </h1>
       );

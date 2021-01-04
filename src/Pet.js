@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link } from '@reach/router';
+import React from "react";
+import { Link } from "@reach/router";
 
 const Pet = ({ breed, id, location, media, name }) => {
-  let hero = 'http://placekitten.com/300/300';
+  let hero = "http://placekitten.com/300/300";
 
   if (media.length) {
     hero = media[0].small;

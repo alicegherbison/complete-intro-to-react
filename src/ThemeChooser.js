@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext } from "react";
 
-import ThemeContext from './useThemeContext';
+import ThemeContext from "./useThemeContext";
 
 export default function ThemeChooser() {
   const [theme, setTheme] = useContext(ThemeContext);
