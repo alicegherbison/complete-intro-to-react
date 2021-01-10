@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { render } from "react-dom";
-import { Link, Router } from "@reach/router";
+import { Router } from "@reach/router";
 
 import ThemeContext from "./useThemeContext";
 
 import Details from "./Details";
+import NavBar from "./NavBar";
 import Search from "./Search";
 
 const App = () => {
@@ -14,11 +15,12 @@ const App = () => {
   return (
     <React.StrictMode>
       <ThemeContext.Provider value={themeHook}>
-        <header>
+        {/* <header>
           <Link className="title" to="/">
             Adopt me!
           </Link>
-        </header>
+        </header> */}
+        <NavBar />
         <main>
           <Router>
             <Search path="/" />
