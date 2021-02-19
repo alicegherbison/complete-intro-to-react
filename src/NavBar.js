@@ -5,13 +5,10 @@ import { css, jsx } from "@emotion/react";
 const NavBar = () => (
   <header
     css={css`
-      padding: 32px;
-      background-color: hotpink;
-      font-size: 24px;
-      border-radius: 4px;
-      &:hover {
-        color: pink;
-      }
+      padding: 3.2rem;
+      background-color: var(--color-lilac);
+      font-size: 2.4rem;
+      border-radius: 0.4rem;
     `}>
     <Link className="title" to="/">
       Adopt me{" "}
