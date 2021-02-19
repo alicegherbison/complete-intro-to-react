@@ -2,8 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import pet, { ANIMALS } from "@frontendmasters/pet";
 
 import useDropdown from "./useDropdown";
-
-import ThemeContext from "./useThemeContext";
+import useThemeContext from "./useThemeContext";
 
 import Results from "./Results";
 import ThemeChooser from "./ThemeChooser";
@@ -16,7 +15,7 @@ const SearchParameters = () => {
   const [animal, AnimalDropdown] = useDropdown("Animal", "cat", ANIMALS);
   const [breed, BreedDropdown, setBreed] = useDropdown("Breed", "", breeds);
 
-  const [theme] = useContext(ThemeContext);
+  const [theme] = useContext(useThemeContext);
 
   async function requestPets() {
     const { animals } = await pet.animals({
