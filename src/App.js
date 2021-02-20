@@ -5,9 +5,9 @@ import { Router } from "@reach/router";
 import ThemeContext from "./useThemeContext";
 
 import NavBar from "./NavBar";
-import Search from "./Search";
 
 const Details = lazy(() => import("./Details"));
+const Search = lazy(() => import("./Search"));
 
 const App = () => {
   // can also use an object instead of a string, then access properties as needed
