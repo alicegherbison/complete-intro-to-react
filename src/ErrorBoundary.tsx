@@ -1,30 +1,30 @@
-import React from "react";
+import React, { Component, ErrorInfo } from "react";
 import { Link, Redirect } from "@reach/router";
 
-class ErrorBoundary extends React.Component {
-  state = {
+class ErrorBoundary extends Component {
+  public state = {
     hasError: false,
     redirect: false,
   };
 
-  static getDerivedStateFromError() {
+  public static getDerivedStateFromError() {
     return {
       hasError: true,
     };
   }
 
-  componentDidCatch(error, info) {
+  public componentDidCatch(error: Error, info: ErrorInfo) {
     console.error("Error boundary caught an error", error, info);
   }
 
   // called every time props or state change - the equivalent of useEffect
-  componentDidUpdate() {
+  public componentDidUpdate() {
     if (this.state.hasError) {
       setTimeout(() => this.setState({ redirect: true }), 5000);
     }
   }
 
-  render() {
+  public render() {
     if (this.state.redirect) {
       return <Redirect to="/" />;
     }

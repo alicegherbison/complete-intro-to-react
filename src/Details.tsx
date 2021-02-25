@@ -1,6 +1,6 @@
 import React, { lazy } from "react";
-import { navigate } from "@reach/router";
-import pet from "@frontendmasters/pet";
+import { navigate, RouteComponentProps } from "@reach/router";
+import pet, { Photo } from "@frontendmasters/pet";
 
 import Carousel from "./Carousel";
 import ErrorBoundary from "./ErrorBoundary";
@@ -8,28 +8,46 @@ import ThemeContext from "./useThemeContext";
 
 const Modal = lazy(() => import("./Modal"));
 
-class Details extends React.Component {
-  state = { loading: true, modal: false };
+class Details extends React.Component<RouteComponentProps<{ id: string }>> {
+  public state = {
+    animal: "",
+    breed: "",
+    description: "",
+    loading: true,
+    location: "",
+    media: [] as Photo[],
+    modal: false,
+    name: "",
+    url: "",
+  };
 
-  componentDidMount() {
-    pet.animal(this.props.id).then(({ animal }) => {
-      this.setState({
-        name: animal.name,
-        location: `${animal.contact.address.city}, ${animal.contact.address.state}`,
-        description: animal.description,
-        media: animal.photos,
-        breed: animal.breeds.primary,
-        url: animal.url,
-        loading: false,
-      });
-    }, console.error);
+  public componentDidMount() {
+    if (!this.props.id) {
+      navigate("/");
+      return;
+    }
+
+    pet
+      .animal(+this.props.id)
+      .then(({ animal }) => {
+        this.setState({
+          name: animal.name,
+          location: `${animal.contact.address.city}, ${animal.contact.address.state}`,
+          description: animal.description,
+          media: animal.photos,
+          breed: animal.breeds.primary,
+          url: animal.url,
+          loading: false,
+        });
+      })
+      .catch((error: Error) => this.setState({ error }));
   }
 
-  adopt = () => navigate(this.state.url);
+  public adopt = () => navigate(this.state.url);
 
-  toggleModal = () => this.setState({ modal: !this.state.modal });
+  public toggleModal = () => this.setState({ modal: !this.state.modal });
 
-  render() {
+  public render() {
     const { breed, description, location, media, modal, name } = this.state;
 
     if (this.state.loading) {
@@ -87,7 +105,9 @@ class Details extends React.Component {
   }
 }
 
-export default function DetailsWithErrorBoundary(props) {
+export default function DetailsWithErrorBoundary(
+  props: RouteComponentProps<{ id: string }>
+) {
   return (
     <ErrorBoundary>
       <Details {...props} />
