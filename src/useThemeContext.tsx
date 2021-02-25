@@ -1,6 +1,9 @@
 import { createContext } from "react";
 
 // updater doesn't do anything - hence empty function
-const useThemeContext = createContext(["#a9dc76", () => {}]);
+const useThemeContext = createContext<[string, (theme: string) => void]>([
+  "var(--color-green)",
+  () => {},
+]);
 
 export default useThemeContext;
