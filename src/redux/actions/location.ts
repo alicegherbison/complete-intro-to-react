@@ -1,10 +1,10 @@
 import {
   ELocationActions,
   ILocation,
-  IChangeLocation,
+  IChangeLocationAction,
 } from "../types/location";
 
-export function changeLocation(location: ILocation): IChangeLocation {
+export function changeLocation(location: ILocation): IChangeLocationAction {
   return {
     payload: location,
     type: ELocationActions.CHANGE_LOCATION,

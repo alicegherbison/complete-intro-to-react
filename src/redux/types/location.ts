@@ -6,9 +6,9 @@ export interface ILocation {
   location: string;
 }
 
-export interface IChangeLocation {
+export interface IChangeLocationAction {
   payload: ILocation;
   type: ELocationActions;
 }
 
-export type TLocationActions = IChangeLocation;
+export type TLocationActions = IChangeLocationAction;
