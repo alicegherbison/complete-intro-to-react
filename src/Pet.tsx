@@ -1,7 +1,22 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
+import { Photo } from "@frontendmasters/pet";
 import { Link } from "@reach/router";
 
-const Pet = ({ breed, id, location, media, name }) => {
+interface IProps {
+  breed: string;
+  id: number;
+  location: string;
+  media: Photo[];
+  name: string;
+}
+
+const Pet: FunctionComponent<IProps> = ({
+  breed,
+  id,
+  location,
+  media,
+  name,
+}) => {
   let hero = "http://placekitten.com/300/300";
 
   if (media.length) {

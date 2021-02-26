@@ -1,7 +1,13 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
+import { Animal } from "@frontendmasters/pet";
+
 import Pet from "./Pet";
 
-const Results = ({ pets }) => {
+interface IProps {
+  pets: Animal[] | null;
+}
+
+const Results: FunctionComponent<IProps> = ({ pets }) => {
   return (
     <section className="results">
       {pets === null ? (
@@ -10,12 +16,12 @@ const Results = ({ pets }) => {
         pets.map((pet) => {
           return (
             <Pet
-              key={pet.id}
-              name={pet.name}
               breed={pet.breeds.primary}
-              media={pet.photos}
-              location={`${pet.contact.address.city}, ${pet.contact.address.state}`}
               id={pet.id}
+              key={pet.id}
+              location={`${pet.contact.address.city}, ${pet.contact.address.state}`}
+              media={pet.photos}
+              name={pet.name}
             />
           );
         })

@@ -1,3 +1,4 @@
+import React, { FunctionComponent } from "react";
 import { Link } from "@reach/router";
 /** @jsx jsx */
 import { css, jsx, keyframes } from "@emotion/react";
@@ -6,7 +7,7 @@ const spin = keyframes`to {
   transform: rotate(360deg);
 }`;
 
-const NavBar = () => (
+const NavBar: FunctionComponent = () => (
   <header
     css={css`
       border-radius: var(--radius);

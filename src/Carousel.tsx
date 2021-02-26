@@ -1,12 +1,22 @@
-import React from "react";
+import React, { Component, MouseEvent } from "react";
+import { Photo } from "@frontendmasters/pet";
 
-class Carousel extends React.Component {
-  state = {
+interface IProps {
+  media: Photo[];
+}
+
+interface IState {
+  active: number;
+  photos: string[];
+}
+
+class Carousel extends Component<IProps, IState> {
+  public state = {
     photos: [],
     active: 0,
   };
 
-  static getDerivedStateFromProps({ media }) {
+  public static getDerivedStateFromProps({ media }: IProps) {
     let photos = ["http://placekitten.com/600/600"];
 
     if (media.length) {
@@ -16,13 +26,16 @@ class Carousel extends React.Component {
     return { photos };
   }
 
-  handleIndexClick = (event) => {
-    this.setState({
-      active: +event.currentTarget.dataset.index,
-    });
+  public handleIndexClick = (event: MouseEvent<HTMLElement>) => {
+    if (!(event.target instanceof HTMLElement)) return;
+    if (event.currentTarget.dataset.index) {
+      this.setState({
+        active: +event.currentTarget.dataset.index,
+      });
+    }
   };
 
-  render() {
+  public render() {
     const { photos, active } = this.state;
 
     return (
