@@ -16,8 +16,8 @@ export interface ITheme {
 }
 
 export interface IChangeThemeAction {
-  type: EThemeActions;
   payload: ITheme;
+  type: EThemeActions;
 }
 
 export type TThemeActions = IChangeThemeAction;
