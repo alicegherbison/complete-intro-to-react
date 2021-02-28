@@ -1,8 +1,15 @@
-import React, { Suspense, lazy, useState } from "react";
+import React, {
+  Suspense,
+  lazy,
+  // useState
+} from "react";
 import { render } from "react-dom";
+import { Provider } from "react-redux";
 import { Router } from "@reach/router";
 
-import ThemeContext from "./useThemeContext";
+import store from "./store";
+
+// import ThemeContext from "./useThemeContext";
 
 import NavBar from "./NavBar";
 
@@ -11,11 +18,12 @@ const Search = lazy(() => import("./Search"));
 
 const App = () => {
   // can also use an object instead of a string, then access properties as needed
-  const themeHook = useState("var(--color-green)");
+  // const themeHook = useState("var(--color-green)");
 
   return (
-    <React.StrictMode>
-      <ThemeContext.Provider value={themeHook}>
+    <Provider store={store}>
+      <React.StrictMode>
+        {/* <ThemeContext.Provider value={themeHook}> */}
         <NavBar />
         <main>
           <Suspense fallback={null}>
@@ -25,8 +33,9 @@ const App = () => {
             </Router>
           </Suspense>
         </main>
-      </ThemeContext.Provider>
-    </React.StrictMode>
+        {/* </ThemeContext.Provider> */}
+      </React.StrictMode>
+    </Provider>
   );
 };
 

@@ -2,12 +2,10 @@ export enum ELocationActions {
   CHANGE_LOCATION = "change location",
 }
 
-export interface ILocation {
-  location: string;
-}
+export type TLocation = string;
 
 export interface IChangeLocationAction {
-  payload: ILocation;
+  payload: TLocation;
   type: ELocationActions;
 }
 

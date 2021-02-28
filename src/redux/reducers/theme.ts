@@ -1,6 +1,9 @@
-import { EThemeActions, TThemeActions } from "../types/theme";
+import { EThemes, EThemeActions, TThemeActions } from "../types/theme";
 
-export default function theme(state = "Seattle, WA", action: TThemeActions) {
+export default function theme(
+  state: EThemes = EThemes.Green,
+  action: TThemeActions
+) {
   switch (action.type) {
     case EThemeActions.CHANGE_THEME:
       return action.payload;

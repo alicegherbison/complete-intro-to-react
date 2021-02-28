@@ -1,7 +1,11 @@
-import { ELocationActions, TLocationActions } from "../types/location";
+import {
+  ELocationActions,
+  TLocation,
+  TLocationActions,
+} from "../types/location";
 
 export default function location(
-  state = "Seattle, WA",
+  state: TLocation = "Seattle, WA",
   action: TLocationActions
 ) {
   switch (action.type) {
