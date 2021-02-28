@@ -1,4 +1,4 @@
-import React, { ReactElement, useContext } from "react";
+import React, { ReactElement, useMemo } from "react";
 import { Dispatch } from "redux";
 import { connect } from "react-redux";
 
@@ -15,8 +15,18 @@ interface TThemeChooser {
 function ThemeChooser(props: TThemeChooser): ReactElement {
   const { dispatchChangeTheme, theme } = props;
 
-  console.log(Object.keys(EThemes));
-  console.log(Object.values(EThemes));
+  const colors = useMemo(() => Object.keys(EThemes), [EThemes]);
+  const variables = useMemo(() => Object.values(EThemes), [EThemes]);
+
+  const options = useMemo(
+    () =>
+      colors.map((color, i) => (
+        <option key={i} value={variables[i]}>
+          {color}
+        </option>
+      )),
+    [EThemes]
+  );
 
   return (
     <section className="theme-chooser">
@@ -27,12 +37,7 @@ function ThemeChooser(props: TThemeChooser): ReactElement {
             onBlur={(event) => dispatchChangeTheme(event.target.value)}
             onChange={(event) => dispatchChangeTheme(event.target.value)}
             value={theme}>
-            <option value="var(--color-lilac)">Lilac</option>
-            <option value="var(--color-pink)">Pink</option>
-            <option value="var(--color-orange)">Orange</option>
-            <option value="var(--color-yellow)">Yellow</option>
-            <option value="var(--color-green)">Green</option>
-            <option value="var(--color-cyan)">Cyan</option>
+            {options}
           </select>
         </label>
       </form>

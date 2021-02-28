@@ -1,10 +1,10 @@
 export enum EThemes {
-  Lilac = "#ab9df2",
-  Pink = "#ff6188",
-  Orange = "#fc9867",
-  Yellow = "#ffd866",
-  Green = "#a9dc76",
-  Cyan = "#78dce8",
+  Lilac = "var(--color-lilac)",
+  Pink = "var(--color-pink)",
+  Orange = "var(--color-orange)",
+  Yellow = "var(--color-yellow)",
+  Green = "var(--color-green)",
+  Cyan = "var(--color-cyan)",
 }
 
 export enum EThemeActions {
