@@ -1,14 +1,21 @@
-import React, { lazy } from "react";
+import React, { Component, lazy } from "react";
+import { connect } from "react-redux";
 import { navigate, RouteComponentProps } from "@reach/router";
 import pet, { Photo } from "@frontendmasters/pet";
 
+import TState from "./redux/types";
+import { EThemes } from "./redux/types/theme";
+
 import Carousel from "./Carousel";
 import ErrorBoundary from "./ErrorBoundary";
-import ThemeContext from "./useThemeContext";
 
 const Modal = lazy(() => import("./Modal"));
 
-class Details extends React.Component<RouteComponentProps<{ id: string }>> {
+interface IDetails extends RouteComponentProps<{ id: string }> {
+  theme: EThemes;
+}
+
+class Details extends Component<IDetails> {
   public state = {
     animal: "",
     breed: "",
@@ -48,6 +55,7 @@ class Details extends React.Component<RouteComponentProps<{ id: string }>> {
   public toggleModal = () => this.setState({ modal: !this.state.modal });
 
   public render() {
+    const { theme } = this.props;
     const { breed, description, location, media, modal, name } = this.state;
 
     if (this.state.loading) {
@@ -64,16 +72,14 @@ class Details extends React.Component<RouteComponentProps<{ id: string }>> {
             <p>{location}</p>
           </div>
           <div className="adopt">
-            <ThemeContext.Consumer>
-              {([theme]) => (
-                <button
-                  className="text-button"
-                  onClick={this.toggleModal}
-                  style={{ backgroundColor: theme }}>
-                  Adopt {name}
-                </button>
-              )}
-            </ThemeContext.Consumer>
+            {/* <ThemeContext.Consumer> */}
+            <button
+              className="text-button"
+              onClick={this.toggleModal}
+              style={{ backgroundColor: this.props.theme }}>
+              Adopt {name}
+            </button>
+            {/* </ThemeContext.Consumer> */}
           </div>
           <hr />
           <p>{description}</p>
@@ -82,16 +88,14 @@ class Details extends React.Component<RouteComponentProps<{ id: string }>> {
           <Modal>
             <h2 className="adopt-heading">Adopt {name}?</h2>
             <div className="buttons">
-              <ThemeContext.Consumer>
-                {([theme]) => (
-                  <button
-                    className="text-button"
-                    onClick={this.adopt}
-                    style={{ backgroundColor: theme }}>
-                    Yes!
-                  </button>
-                )}
-              </ThemeContext.Consumer>
+              {/* <ThemeContext.Consumer> */}
+              <button
+                className="text-button"
+                onClick={this.adopt}
+                style={{ backgroundColor: this.props.theme }}>
+                Yes!
+              </button>
+              {/* </ThemeContext.Consumer> */}
               <button
                 className="text-button text-button-transparent"
                 onClick={this.toggleModal}>
@@ -105,12 +109,18 @@ class Details extends React.Component<RouteComponentProps<{ id: string }>> {
   }
 }
 
+const mapStateToProps = ({ theme }: TState) => ({
+  theme,
+});
+
+const WrappedDeatils = connect(mapStateToProps)(Details);
+
 export default function DetailsWithErrorBoundary(
   props: RouteComponentProps<{ id: string }>
 ) {
   return (
     <ErrorBoundary>
-      <Details {...props} />
+      <WrappedDeatils {...props} />
     </ErrorBoundary>
   );
 }
