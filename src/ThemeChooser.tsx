@@ -15,13 +15,10 @@ interface TThemeChooser {
 function ThemeChooser(props: TThemeChooser): ReactElement {
   const { dispatchChangeTheme, theme } = props;
 
-  const colors = useMemo(() => Object.keys(EThemes), [EThemes]);
-  const variables = useMemo(() => Object.values(EThemes), [EThemes]);
-
   const options = useMemo(
     () =>
-      colors.map((color, i) => (
-        <option key={i} value={variables[i]}>
+      Object.keys(EThemes).map((color, i) => (
+        <option key={i} value={Object.values(EThemes)[i]}>
           {color}
         </option>
       )),
