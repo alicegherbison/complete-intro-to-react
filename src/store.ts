@@ -1,13 +1,21 @@
-import { createStore } from "redux";
+import { createStore, StoreEnhancer } from "redux";
 import reducer from "./redux/reducers";
 
-const store = createStore(
-  reducer
+type WindowWithDevTools = Window & {
+  __REDUX_DEVTOOLS_EXTENSION__: () => StoreEnhancer<unknown, {}>;
+};
 
-  // typeof window === "object" &&
-  //   typeof window.__REDUX_DEVTOOLS_EXTENSION__ !== "undefined"
-  //   ? window.__REDUX_DEVTOOLS_EXTENSION__()
-  //   : (fake) => fake
+const isReduxDevtoolsExtenstionExist = (
+  arg: Window | WindowWithDevTools
+): arg is WindowWithDevTools => {
+  return "__REDUX_DEVTOOLS_EXTENSION__" in arg;
+};
+
+const store = createStore(
+  reducer,
+  isReduxDevtoolsExtenstionExist(window)
+    ? window.__REDUX_DEVTOOLS_EXTENSION__()
+    : undefined
 );
 
 export default store;
