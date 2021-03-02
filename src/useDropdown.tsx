@@ -13,6 +13,7 @@ const useDropdown = (
     <label htmlFor={id}>
       <span>{label}</span>
       <select
+        data-testid={id}
         disabled={options.length === 0}
         id={id}
         onBlur={(event) => setState(event.target.value)}

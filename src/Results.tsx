@@ -9,7 +9,7 @@ interface IProps {
 
 const Results: FunctionComponent<IProps> = ({ pets }) => {
   return (
-    <section className="results">
+    <section className="results" data-testid="results">
       {pets === null ? (
         <h2>Use the search form to search for your ideal pet.</h2>
       ) : pets.length ? (

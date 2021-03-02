@@ -21,13 +21,13 @@ import useDropdown from "./useDropdown";
 import Results from "./Results";
 import ThemeChooser from "./ThemeChooser";
 
-interface ISearchParameters extends RouteComponentProps {
+interface ISearch extends RouteComponentProps {
   animalLocation: string;
   dispatchChangeLocation: typeof changeLocation;
   theme: EThemes;
 }
 
-const SearchParameters = (props: ISearchParameters) => {
+const Search = (props: ISearch) => {
   const { animalLocation, dispatchChangeLocation, theme } = props;
 
   const [breeds, setBreeds] = useState([] as string[]);
@@ -39,14 +39,16 @@ const SearchParameters = (props: ISearchParameters) => {
 
   // const [theme] = useContext(useThemeContext);
 
-  async function requestPets() {
-    const { animals } = await pet.animals({
-      location: animalLocation,
-      breed,
-      type: animal,
-    });
-
-    setPets(animals || []);
+  function requestPets() {
+    pet
+      .animals({
+        location: animalLocation,
+        breed,
+        type: animal,
+      })
+      .then(({ animals }) => {
+        setPets(animals || []);
+      });
   }
 
   useEffect(() => {
@@ -79,8 +81,11 @@ const SearchParameters = (props: ISearchParameters) => {
             </label>
             <AnimalDropdown />
             <BreedDropdown />
-            <button className="text-button" style={{ backgroundColor: theme }}>
-              Submit
+            <button
+              className="text-button"
+              data-testid="search"
+              style={{ backgroundColor: theme }}>
+              Search
             </button>
           </form>
         </section>
@@ -101,4 +106,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
     dispatch(changeLocation(location)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchParameters);
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
