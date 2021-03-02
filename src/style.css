@@ -306,11 +306,14 @@ a.title {
   color: var(--color-cream);
 }
 
+.content {
+  border-color: var(--color-orange);
+}
+
 .results {
   display: grid;
 
   grid-gap: 1rem;
-  border-color: var(--color-orange);
 }
 
 .pet {
@@ -450,7 +453,7 @@ a.title {
     width: 36rem;
   }
 
-  .results {
+  .content {
     flex-grow: 1;
   }
 }
