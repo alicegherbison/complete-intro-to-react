@@ -9,6 +9,9 @@
     "format": "prettier \"src/**/*.{js,html,css}\" --write",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:update": "jest -u",
+    "test:watch": "jest --watch",
     "typecheck": "tsc --noEmit"
   },
   "repository": {
