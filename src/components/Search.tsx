@@ -8,14 +8,13 @@ import { connect } from "react-redux";
 import pet, { Animal, ANIMALS } from "@frontendmasters/pet";
 import { RouteComponentProps } from "@reach/router";
 
-import TState from "./redux/types";
-import { TLocation } from "./redux/types/location";
-import { EThemes } from "./redux/types/theme";
+import TState from "../redux/types";
+import { TLocation } from "../redux/types/location";
+import { EThemes } from "../redux/types/theme";
 
-import { changeLocation } from "./redux/actions/location";
-import { changeTheme } from "./redux/actions/theme";
+import { changeLocation } from "../redux/actions/location";
 
-import useDropdown from "./useDropdown";
+import useDropdown from "../hooks/useDropdown";
 // import useThemeContext from "./useThemeContext";
 
 import Results from "./Results";

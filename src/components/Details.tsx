@@ -3,11 +3,11 @@ import { connect } from "react-redux";
 import { navigate, RouteComponentProps } from "@reach/router";
 import pet, { Photo } from "@frontendmasters/pet";
 
-import TState from "./redux/types";
-import { EThemes } from "./redux/types/theme";
+import TState from "../redux/types";
+import { EThemes } from "../redux/types/theme";
 
 import Carousel from "./Carousel";
-import ErrorBoundary from "./ErrorBoundary";
+import ErrorBoundary from "../ErrorBoundary";
 
 const Modal = lazy(() => import("./Modal"));
 
@@ -76,7 +76,7 @@ class Details extends Component<IDetails> {
             <button
               className="text-button"
               onClick={this.toggleModal}
-              style={{ backgroundColor: this.props.theme }}>
+              style={{ backgroundColor: theme }}>
               Adopt {name}
             </button>
             {/* </ThemeContext.Consumer> */}
@@ -92,7 +92,7 @@ class Details extends Component<IDetails> {
               <button
                 className="text-button"
                 onClick={this.adopt}
-                style={{ backgroundColor: this.props.theme }}>
+                style={{ backgroundColor: theme }}>
                 Yes!
               </button>
               {/* </ThemeContext.Consumer> */}

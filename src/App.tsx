@@ -11,10 +11,10 @@ import store from "./store";
 
 // import ThemeContext from "./useThemeContext";
 
-import NavBar from "./NavBar";
+import NavBar from "./components/NavBar";
 
-const Details = lazy(() => import("./Details"));
-const Search = lazy(() => import("./Search"));
+const Details = lazy(() => import("./components/Details"));
+const Search = lazy(() => import("./components/Search"));
 
 const App = () => {
   // can also use an object instead of a string, then access properties as needed

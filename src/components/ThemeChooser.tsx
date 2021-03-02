@@ -2,10 +2,10 @@ import React, { ReactElement, useMemo } from "react";
 import { Dispatch } from "redux";
 import { connect } from "react-redux";
 
-import TState from "./redux/types";
-import { EThemes } from "./redux/types/theme";
+import TState from "../redux/types";
+import { EThemes } from "../redux/types/theme";
 
-import { changeTheme } from "./redux/actions/theme";
+import { changeTheme } from "../redux/actions/theme";
 
 interface TThemeChooser {
   dispatchChangeTheme: typeof changeTheme;
